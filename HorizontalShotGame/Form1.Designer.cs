@@ -33,6 +33,10 @@
             this.ObjectBall = new System.Windows.Forms.PictureBox();
             this.Target = new System.Windows.Forms.PictureBox();
             this.GameTimer = new System.Windows.Forms.Timer(this.components);
+            this.Score = new System.Windows.Forms.Label();
+            this.Attempt = new System.Windows.Forms.Label();
+            this.Velocitiy = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ObjectBall)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Target)).BeginInit();
             this.SuspendLayout();
@@ -40,6 +44,7 @@
             // ObjectBall
             // 
             this.ObjectBall.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ObjectBall.BackColor = System.Drawing.SystemColors.Control;
             this.ObjectBall.Image = ((System.Drawing.Image)(resources.GetObject("ObjectBall.Image")));
             this.ObjectBall.Location = new System.Drawing.Point(10, 10);
             this.ObjectBall.Name = "ObjectBall";
@@ -61,21 +66,64 @@
             // 
             // GameTimer
             // 
+            this.GameTimer.Interval = 500;
             this.GameTimer.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // Score
+            // 
+            this.Score.AutoSize = true;
+            this.Score.Location = new System.Drawing.Point(699, 10);
+            this.Score.Name = "Score";
+            this.Score.Size = new System.Drawing.Size(53, 17);
+            this.Score.TabIndex = 2;
+            this.Score.Text = "Score: ";
+            // 
+            // Attempt
+            // 
+            this.Attempt.AutoSize = true;
+            this.Attempt.Location = new System.Drawing.Point(699, 27);
+            this.Attempt.Name = "Attempt";
+            this.Attempt.Size = new System.Drawing.Size(71, 17);
+            this.Attempt.TabIndex = 3;
+            this.Attempt.Text = "Attempts: ";
+            // 
+            // Velocitiy
+            // 
+            this.Velocitiy.AutoSize = true;
+            this.Velocitiy.Location = new System.Drawing.Point(7, 424);
+            this.Velocitiy.Name = "Velocitiy";
+            this.Velocitiy.Size = new System.Drawing.Size(65, 17);
+            this.Velocitiy.TabIndex = 4;
+            this.Velocitiy.Text = "Velocity: ";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(66, 424);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.TabIndex = 5;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(787, 450);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Velocitiy);
+            this.Controls.Add(this.Attempt);
+            this.Controls.Add(this.Score);
             this.Controls.Add(this.Target);
             this.Controls.Add(this.ObjectBall);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form1";
             this.Text = "Horizontal Shot Game";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.ObjectBall)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Target)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -84,8 +132,10 @@
         private System.Windows.Forms.PictureBox ObjectBall;
         private System.Windows.Forms.PictureBox Target;
         private System.Windows.Forms.Timer GameTimer;
-
-      
+        private System.Windows.Forms.Label Score;
+        private System.Windows.Forms.Label Attempt;
+        private System.Windows.Forms.Label Velocitiy;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
