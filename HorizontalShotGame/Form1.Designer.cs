@@ -74,18 +74,20 @@
             this.Score.AutoSize = true;
             this.Score.Location = new System.Drawing.Point(699, 10);
             this.Score.Name = "Score";
-            this.Score.Size = new System.Drawing.Size(53, 17);
+            this.Score.Size = new System.Drawing.Size(61, 17);
             this.Score.TabIndex = 2;
-            this.Score.Text = "Score: ";
+            this.Score.Text = "Score: 0";
+            this.Score.TextChanged += new System.EventHandler(this.Score_TextChanged);
             // 
             // Attempt
             // 
             this.Attempt.AutoSize = true;
             this.Attempt.Location = new System.Drawing.Point(699, 27);
             this.Attempt.Name = "Attempt";
-            this.Attempt.Size = new System.Drawing.Size(71, 17);
+            this.Attempt.Size = new System.Drawing.Size(79, 17);
             this.Attempt.TabIndex = 3;
-            this.Attempt.Text = "Attempts: ";
+            this.Attempt.Text = "Attempts: 0";
+            this.Attempt.TextChanged += new System.EventHandler(this.Attempt_TextChanged);
             // 
             // Velocitiy
             // 
@@ -98,11 +100,15 @@
             // 
             // textBox1
             // 
+            this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(66, 424);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 22);
             this.textBox1.TabIndex = 5;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.Text = "0 m/s";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // Form1
             // 
@@ -119,6 +125,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form1";
             this.Text = "Horizontal Shot Game";
+            this.Shown += new System.EventHandler(this.timer1_Tick);
+            this.Click += new System.EventHandler(this.Form1_Click);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.ObjectBall)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Target)).EndInit();
