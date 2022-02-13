@@ -37,6 +37,7 @@
             this.Attempt = new System.Windows.Forms.Label();
             this.Velocitiy = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Ratio = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ObjectBall)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Target)).BeginInit();
             this.SuspendLayout();
@@ -57,7 +58,7 @@
             // 
             this.Target.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Target.Image = ((System.Drawing.Image)(resources.GetObject("Target.Image")));
-            this.Target.Location = new System.Drawing.Point(30, 292);
+            this.Target.Location = new System.Drawing.Point(663, 343);
             this.Target.Name = "Target";
             this.Target.Size = new System.Drawing.Size(87, 65);
             this.Target.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -109,12 +110,22 @@
             this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
             this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
+            // Ratio
+            // 
+            this.Ratio.AutoSize = true;
+            this.Ratio.Location = new System.Drawing.Point(717, 43);
+            this.Ratio.Name = "Ratio";
+            this.Ratio.Size = new System.Drawing.Size(57, 17);
+            this.Ratio.TabIndex = 6;
+            this.Ratio.Text = "Ratio: 0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(822, 467);
+            this.Controls.Add(this.Ratio);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.Velocitiy);
             this.Controls.Add(this.Attempt);
@@ -142,6 +153,7 @@
         private System.Windows.Forms.Label Attempt;
         private System.Windows.Forms.Label Velocitiy;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label Ratio;
     }
 }
 

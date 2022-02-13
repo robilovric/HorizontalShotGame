@@ -18,10 +18,10 @@ namespace HorizontalShotGame
             InitializeComponent();
             ResetGame();
         }
-        int real_control_number = 6;
+        int real_control_number = 7;
         int tick_number = 1;
         double gravity = 9.81;
-        double velocity = 0;
+        double velocity = 0.0D;
         Random rand = new Random();
         int score, attempt = 0;
         //bool isGameOver;
@@ -36,6 +36,7 @@ namespace HorizontalShotGame
             ObjectBall.Left += (int)(velocity * 0.1 * tick_number);
             ObjectBall.Top += (int)(0.5 * gravity * Math.Pow(0.1 * tick_number, 2));
             tick_number += 1;
+            double ratio = (score / (double)attempt) * 100;
             //objectball hitting the target
             if (ObjectBall.Bounds.IntersectsWith(Target.Bounds))
             {
@@ -43,20 +44,57 @@ namespace HorizontalShotGame
                 ObjectBall.Visible = false;
                 score += 1;
                 Score.Text += " ";
-
+                ratio = (score / (double)attempt) * 100;
+                Ratio.Text = "Ratio: " + ratio.ToString("0.00") + " %";
                 ResetGame();
             }
+            //object ball leaving the screen
             if(ObjectBall.Location.X < ClientRectangle.Size.Width && ObjectBall.Location.Y > ClientRectangle.Size.Height)
             {
-                GameTimer.Stop();        
+                GameTimer.Stop();
+                ratio = (score / (double)attempt) * 100;
+                Ratio.Text = "Ratio: " + ratio.ToString("0.00") + " %";
                 ResetGame();
             }
             if (ObjectBall.Location.X > ClientRectangle.Size.Width && ObjectBall.Location.Y < ClientRectangle.Size.Height)
             {
                 GameTimer.Stop();
+                ratio = (score / (double)attempt) * 100;
+                Ratio.Text = "Ratio: " + ratio.ToString("0.00") + " %";
                 ResetGame();
             }
+            Ratio.Text = "Ratio: " + ratio.ToString("0.00") + " %";
+        }
 
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                attempt += 1;
+                Attempt.Text += " ";
+                try
+                {
+                    velocity = double.Parse(textBox1.Text);
+                }
+                catch (Exception) { textBox1.Text = "Invalid input!"; return; }
+                GameTimer.Start();
+                textBox1.Text = velocity.ToString("0.00") + " m/s";
+                textBox1.Enabled = false;
+            }
+
+        }
+
+        private void EraseTrail()
+        {
+            //erasing the previous trail
+            for (int i = 0; i < this.Controls.Count; ++i)
+            {
+                if (Controls[i].Name == "trail")
+                {
+                    Controls[i].Visible = false;
+                    Controls.RemoveAt(i);
+                }
+            }
         }
 
         private void LeaveTrail()
@@ -112,7 +150,7 @@ namespace HorizontalShotGame
 
         private void Attempt_TextChanged(object sender, EventArgs e)
         {
-            Attempt.Text = "Attempts: " + attempt.ToString();
+            Attempt.Text = "Attempts: " + attempt.ToString(); 
         }
 
 
@@ -125,39 +163,6 @@ namespace HorizontalShotGame
         {
             textBox1.Enabled = !textBox1.Enabled;
         }
-
-        
-        private void textBox1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                attempt += 1;
-                Attempt.Text += " ";
-                try
-                {
-                    velocity = double.Parse(textBox1.Text);
-                }
-                catch (Exception) { textBox1.Text = "Invalid input!"; return; }
-                GameTimer.Start();
-                textBox1.Text += " m/s";
-                textBox1.Enabled = false;
-            }
-
-        }
-
-        private void EraseTrail()
-        {
-            //erasing the previous trail
-            for (int i = 0; i < this.Controls.Count; ++i)
-            {
-                if (Controls[i].Name == "trail")
-                {
-                    Controls[i].Visible = false;
-                    Controls.RemoveAt(i);
-                }
-            }
-        }
-
 
         private void GameOver()
         {
