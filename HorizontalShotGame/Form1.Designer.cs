@@ -115,9 +115,9 @@
             this.Ratio.AutoSize = true;
             this.Ratio.Location = new System.Drawing.Point(717, 43);
             this.Ratio.Name = "Ratio";
-            this.Ratio.Size = new System.Drawing.Size(57, 17);
+            this.Ratio.Size = new System.Drawing.Size(73, 17);
             this.Ratio.TabIndex = 6;
-            this.Ratio.Text = "Ratio: 0";
+            this.Ratio.Text = "Ratio: 0 %";
             // 
             // Form1
             // 
