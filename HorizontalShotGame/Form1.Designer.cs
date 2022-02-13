@@ -46,7 +46,7 @@
             this.ObjectBall.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ObjectBall.BackColor = System.Drawing.SystemColors.Control;
             this.ObjectBall.Image = ((System.Drawing.Image)(resources.GetObject("ObjectBall.Image")));
-            this.ObjectBall.Location = new System.Drawing.Point(10, 10);
+            this.ObjectBall.Location = new System.Drawing.Point(6, 10);
             this.ObjectBall.Name = "ObjectBall";
             this.ObjectBall.Size = new System.Drawing.Size(22, 22);
             this.ObjectBall.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -57,7 +57,7 @@
             // 
             this.Target.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Target.Image = ((System.Drawing.Image)(resources.GetObject("Target.Image")));
-            this.Target.Location = new System.Drawing.Point(688, 373);
+            this.Target.Location = new System.Drawing.Point(30, 292);
             this.Target.Name = "Target";
             this.Target.Size = new System.Drawing.Size(87, 65);
             this.Target.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -66,13 +66,12 @@
             // 
             // GameTimer
             // 
-            this.GameTimer.Interval = 500;
             this.GameTimer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Score
             // 
             this.Score.AutoSize = true;
-            this.Score.Location = new System.Drawing.Point(699, 10);
+            this.Score.Location = new System.Drawing.Point(717, 9);
             this.Score.Name = "Score";
             this.Score.Size = new System.Drawing.Size(61, 17);
             this.Score.TabIndex = 2;
@@ -82,7 +81,7 @@
             // Attempt
             // 
             this.Attempt.AutoSize = true;
-            this.Attempt.Location = new System.Drawing.Point(699, 27);
+            this.Attempt.Location = new System.Drawing.Point(717, 26);
             this.Attempt.Name = "Attempt";
             this.Attempt.Size = new System.Drawing.Size(79, 17);
             this.Attempt.TabIndex = 3;
@@ -92,7 +91,7 @@
             // Velocitiy
             // 
             this.Velocitiy.AutoSize = true;
-            this.Velocitiy.Location = new System.Drawing.Point(7, 424);
+            this.Velocitiy.Location = new System.Drawing.Point(3, 429);
             this.Velocitiy.Name = "Velocitiy";
             this.Velocitiy.Size = new System.Drawing.Size(65, 17);
             this.Velocitiy.TabIndex = 4;
@@ -101,7 +100,7 @@
             // textBox1
             // 
             this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(66, 424);
+            this.textBox1.Location = new System.Drawing.Point(63, 429);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 22);
             this.textBox1.TabIndex = 5;
@@ -115,7 +114,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(787, 450);
+            this.ClientSize = new System.Drawing.Size(822, 467);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.Velocitiy);
             this.Controls.Add(this.Attempt);
@@ -125,7 +124,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form1";
             this.Text = "Horizontal Shot Game";
-            this.Shown += new System.EventHandler(this.timer1_Tick);
             this.Click += new System.EventHandler(this.Form1_Click);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.ObjectBall)).EndInit();
