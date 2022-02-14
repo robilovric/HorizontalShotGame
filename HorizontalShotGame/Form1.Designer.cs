@@ -38,6 +38,8 @@
             this.Velocitiy = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.Ratio = new System.Windows.Forms.Label();
+            this.gameMode = new System.Windows.Forms.Label();
+            this.helper = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.ObjectBall)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Target)).BeginInit();
             this.SuspendLayout();
@@ -47,7 +49,7 @@
             this.ObjectBall.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ObjectBall.BackColor = System.Drawing.SystemColors.Control;
             this.ObjectBall.Image = ((System.Drawing.Image)(resources.GetObject("ObjectBall.Image")));
-            this.ObjectBall.Location = new System.Drawing.Point(6, 10);
+            this.ObjectBall.Location = new System.Drawing.Point(19, 10);
             this.ObjectBall.Name = "ObjectBall";
             this.ObjectBall.Size = new System.Drawing.Size(22, 22);
             this.ObjectBall.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -58,7 +60,7 @@
             // 
             this.Target.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Target.Image = ((System.Drawing.Image)(resources.GetObject("Target.Image")));
-            this.Target.Location = new System.Drawing.Point(663, 343);
+            this.Target.Location = new System.Drawing.Point(358, 277);
             this.Target.Name = "Target";
             this.Target.Size = new System.Drawing.Size(87, 65);
             this.Target.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -72,9 +74,10 @@
             // Score
             // 
             this.Score.AutoSize = true;
-            this.Score.Location = new System.Drawing.Point(717, 9);
+            this.Score.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Score.Location = new System.Drawing.Point(693, 9);
             this.Score.Name = "Score";
-            this.Score.Size = new System.Drawing.Size(61, 17);
+            this.Score.Size = new System.Drawing.Size(80, 20);
             this.Score.TabIndex = 2;
             this.Score.Text = "Score: 0";
             this.Score.TextChanged += new System.EventHandler(this.Score_TextChanged);
@@ -82,9 +85,10 @@
             // Attempt
             // 
             this.Attempt.AutoSize = true;
-            this.Attempt.Location = new System.Drawing.Point(717, 26);
+            this.Attempt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Attempt.Location = new System.Drawing.Point(693, 26);
             this.Attempt.Name = "Attempt";
-            this.Attempt.Size = new System.Drawing.Size(79, 17);
+            this.Attempt.Size = new System.Drawing.Size(106, 20);
             this.Attempt.TabIndex = 3;
             this.Attempt.Text = "Attempts: 0";
             this.Attempt.TextChanged += new System.EventHandler(this.Attempt_TextChanged);
@@ -92,39 +96,65 @@
             // Velocitiy
             // 
             this.Velocitiy.AutoSize = true;
-            this.Velocitiy.Location = new System.Drawing.Point(3, 429);
+            this.Velocitiy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Velocitiy.Location = new System.Drawing.Point(3, 438);
             this.Velocitiy.Name = "Velocitiy";
-            this.Velocitiy.Size = new System.Drawing.Size(65, 17);
+            this.Velocitiy.Size = new System.Drawing.Size(88, 20);
             this.Velocitiy.TabIndex = 4;
             this.Velocitiy.Text = "Velocity: ";
             // 
             // textBox1
             // 
             this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(63, 429);
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(97, 435);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.Size = new System.Drawing.Size(100, 26);
             this.textBox1.TabIndex = 5;
             this.textBox1.Text = "0 m/s";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
+            this.textBox1.EnabledChanged += new System.EventHandler(this.textBox1_EnabledChanged);
             this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // Ratio
             // 
             this.Ratio.AutoSize = true;
-            this.Ratio.Location = new System.Drawing.Point(717, 43);
+            this.Ratio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ratio.Location = new System.Drawing.Point(693, 43);
             this.Ratio.Name = "Ratio";
-            this.Ratio.Size = new System.Drawing.Size(73, 17);
+            this.Ratio.Size = new System.Drawing.Size(122, 20);
             this.Ratio.TabIndex = 6;
-            this.Ratio.Text = "Ratio: 0 %";
+            this.Ratio.Text = "Ratio: 0,00 %";
+            // 
+            // gameMode
+            // 
+            this.gameMode.AutoSize = true;
+            this.gameMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gameMode.Location = new System.Drawing.Point(694, 435);
+            this.gameMode.Name = "gameMode";
+            this.gameMode.Size = new System.Drawing.Size(137, 20);
+            this.gameMode.TabIndex = 8;
+            this.gameMode.Text = "WATCH MODE";
+            // 
+            // helper
+            // 
+            this.helper.AutoSize = true;
+            this.helper.Location = new System.Drawing.Point(671, 439);
+            this.helper.Name = "helper";
+            this.helper.Size = new System.Drawing.Size(17, 16);
+            this.helper.TabIndex = 9;
+            this.helper.UseVisualStyleBackColor = true;
+            this.helper.Click += new System.EventHandler(this.helper_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(822, 467);
+            this.ClientSize = new System.Drawing.Size(849, 467);
+            this.Controls.Add(this.helper);
+            this.Controls.Add(this.gameMode);
             this.Controls.Add(this.Ratio);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.Velocitiy);
@@ -154,6 +184,8 @@
         private System.Windows.Forms.Label Velocitiy;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label Ratio;
+        private System.Windows.Forms.Label gameMode;
+        private System.Windows.Forms.RadioButton helper;
     }
 }
 

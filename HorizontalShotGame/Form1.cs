@@ -18,10 +18,11 @@ namespace HorizontalShotGame
             InitializeComponent();
             ResetGame();
         }
-        int real_control_number = 7;
+        int real_control_number = 9;
         int tick_number = 1;
         double gravity = 9.81;
         double velocity = 0.0D;
+        double ratio=0;
         Random rand = new Random();
         int score, attempt = 0;
         //bool isGameOver;
@@ -36,7 +37,7 @@ namespace HorizontalShotGame
             ObjectBall.Left += (int)(velocity * 0.1 * tick_number);
             ObjectBall.Top += (int)(0.5 * gravity * Math.Pow(0.1 * tick_number, 2));
             tick_number += 1;
-            double ratio = (score / (double)attempt) * 100;
+            ratio = (score / (double)attempt) * 100;
             //objectball hitting the target
             if (ObjectBall.Bounds.IntersectsWith(Target.Bounds))
             {
@@ -63,6 +64,13 @@ namespace HorizontalShotGame
                 Ratio.Text = "Ratio: " + ratio.ToString("0.00") + " %";
                 ResetGame();
             }
+            if (ObjectBall.Location.X > ClientRectangle.Size.Width && ObjectBall.Location.Y > ClientRectangle.Size.Height)
+            {
+                GameTimer.Stop();
+                ratio = (score / (double)attempt) * 100;
+                Ratio.Text = "Ratio: " + ratio.ToString("0.00") + " %";
+                ResetGame();
+            }
             Ratio.Text = "Ratio: " + ratio.ToString("0.00") + " %";
         }
 
@@ -72,11 +80,13 @@ namespace HorizontalShotGame
             {
                 attempt += 1;
                 Attempt.Text += " ";
+                ratio = (score / (double)attempt) * 100;
+                Ratio.Text = "Ratio: " + ratio.ToString("0.00") + " %";
                 try
                 {
                     velocity = double.Parse(textBox1.Text);
                 }
-                catch (Exception) { textBox1.Text = "Invalid input!"; return; }
+                catch (Exception) { textBox1.Text = "Invalid input!"; textBox1.Enabled = false; return; }
                 GameTimer.Start();
                 textBox1.Text = velocity.ToString("0.00") + " m/s";
                 textBox1.Enabled = false;
@@ -139,6 +149,11 @@ namespace HorizontalShotGame
             }
             if (e.KeyCode == Keys.R)
             {
+                score = 0;
+                attempt = 0;
+                Score.Text = "Score: 0";
+                Attempt.Text = "Attempts: 0";
+                Ratio.Text = "Ratio: 0,00 %";
                 ResetGame();
             }
         }
@@ -162,6 +177,30 @@ namespace HorizontalShotGame
         private void Form1_Click(object sender, EventArgs e)
         {
             textBox1.Enabled = !textBox1.Enabled;
+        }
+
+        private void textBox1_EnabledChanged(object sender, EventArgs e)
+        {
+            if (gameMode.Text == "WATCH MODE")
+                gameMode.Text = "GAME MODE";
+            else
+            {
+                gameMode.Text = "WATCH MODE";
+            }
+            if (textBox1.Enabled == true)
+            {
+                textBox1.BackColor = Color.BlueViolet;
+            }
+            else
+            {
+                textBox1.BackColor = Color.Red;
+            }
+        }
+
+        private void helper_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Click anywhere to start!\nDefault unit: m/s\nReset game: R\nExit game: Esc", "Help");
+            helper.Checked = !helper.Checked;
         }
 
         private void GameOver()
