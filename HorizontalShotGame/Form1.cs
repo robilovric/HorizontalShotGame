@@ -25,6 +25,7 @@ namespace HorizontalShotGame
         double ratio=0;
         Random rand = new Random();
         int score, attempt = 0;
+        const double interval = 0.1;
         //bool isGameOver;
 
 
@@ -34,8 +35,8 @@ namespace HorizontalShotGame
             LeaveTrail();
             //doing the physics of horizontal shot and adapting it to pixel grid
             //0.1 is gameTimer interval in seconds
-            ObjectBall.Left += (int)(velocity * 0.1 * tick_number);
-            ObjectBall.Top += (int)(0.5 * gravity * Math.Pow(0.1 * tick_number, 2));
+            ObjectBall.Left += (int)(velocity * interval * tick_number);
+            ObjectBall.Top += (int)(0.5 * gravity * Math.Pow( interval * tick_number, 2));
             tick_number += 1;
             ratio = (score / (double)attempt) * 100;
             //objectball hitting the target
