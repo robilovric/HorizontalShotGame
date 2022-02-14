@@ -75,7 +75,7 @@
             // 
             this.Score.AutoSize = true;
             this.Score.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Score.Location = new System.Drawing.Point(693, 9);
+            this.Score.Location = new System.Drawing.Point(693, 6);
             this.Score.Name = "Score";
             this.Score.Size = new System.Drawing.Size(80, 20);
             this.Score.TabIndex = 2;
@@ -121,7 +121,7 @@
             // 
             this.Ratio.AutoSize = true;
             this.Ratio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ratio.Location = new System.Drawing.Point(693, 43);
+            this.Ratio.Location = new System.Drawing.Point(693, 46);
             this.Ratio.Name = "Ratio";
             this.Ratio.Size = new System.Drawing.Size(122, 20);
             this.Ratio.TabIndex = 6;
@@ -131,7 +131,7 @@
             // 
             this.gameMode.AutoSize = true;
             this.gameMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gameMode.Location = new System.Drawing.Point(694, 435);
+            this.gameMode.Location = new System.Drawing.Point(693, 441);
             this.gameMode.Name = "gameMode";
             this.gameMode.Size = new System.Drawing.Size(137, 20);
             this.gameMode.TabIndex = 8;
@@ -140,10 +140,12 @@
             // helper
             // 
             this.helper.AutoSize = true;
-            this.helper.Location = new System.Drawing.Point(671, 439);
+            this.helper.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.helper.Location = new System.Drawing.Point(647, 435);
             this.helper.Name = "helper";
-            this.helper.Size = new System.Drawing.Size(17, 16);
+            this.helper.Size = new System.Drawing.Size(40, 30);
             this.helper.TabIndex = 9;
+            this.helper.Text = "!";
             this.helper.UseVisualStyleBackColor = true;
             this.helper.Click += new System.EventHandler(this.helper_Click);
             // 
